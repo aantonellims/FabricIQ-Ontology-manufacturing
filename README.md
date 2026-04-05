@@ -20,6 +20,72 @@ This accelerator deploys a complete **Digital Twin** solution on Microsoft Fabri
 
 **Included Sample Domain**: Saint-Gobain Manufacturing (Glass & Building Materials)
 
+## 🏗️ Architecture
+
+```mermaid
+graph TB
+    User["👤 User<br/><i>Natural Language Query</i>"]
+    Agent["🤖 Data Agent<br/><i>SG_ManufacturingAgent</i>"]
+    Ontology["🧠 Ontology<br/><i>SG_ManufacturingOntology</i>"]
+
+    subgraph EntityTypes["Entity Types"]
+        Plant["🏭 Plant"]
+        Line["⚙️ ProductionLine"]
+        Equip["🔧 Equipment"]
+        Sensor["📡 Sensor"]
+        Product["📦 Product"]
+        WO["📋 WorkOrder"]
+    end
+
+    subgraph Relationships["Relationships"]
+        R1["Plant —Has_Line→ Line"]
+        R2["Line —Has_Equipment→ Equipment"]
+        R3["Equipment —Has_Sensor→ Sensor"]
+        R4["WorkOrder —Assigned_To→ Line"]
+        R5["WorkOrder —Produces→ Product"]
+    end
+
+    subgraph Lakehouse["🗄️ Lakehouse<br/><i>NonTimeSeries Bindings</i>"]
+        DIM_PLANT["DIM_PLANT"]
+        DIM_LINE["DIM_LINE"]
+        DIM_EQUIPMENT["DIM_EQUIPMENT"]
+        DIM_SENSOR["DIM_SENSOR"]
+        DIM_PRODUCT["DIM_PRODUCT"]
+        DIM_WORKORDER["DIM_WORKORDER"]
+        FACT["FACT_PRODUCTION<br/>FACT_WORK_ORDER<br/>FACT_EQUIPMENT_OEE"]
+    end
+
+    subgraph Eventhouse["⚡ Eventhouse / KQL<br/><i>TimeSeries Bindings</i>"]
+        ST["SensorTelemetry<br/><i>Value, Quality</i>"]
+        ES["EquipmentStatus<br/><i>RunTime, DownTime, Status</i>"]
+        PM["ProductionMetrics<br/><i>Efficiency, UnitCount, CycleTime</i>"]
+        AL["Alerts"]
+    end
+
+    subgraph PBI["📊 Power BI"]
+        SM["Semantic Model<br/><i>DirectLake Star Schema</i>"]
+        Report["Dashboards & Reports"]
+    end
+
+    User -->|"Ask question"| Agent
+    Agent -->|"GQL + Time-Series<br/>Selectors"| Ontology
+    Ontology --- EntityTypes
+    Ontology --- Relationships
+    Ontology -->|"Static properties"| Lakehouse
+    Ontology -->|"Telemetry data"| Eventhouse
+    SM -->|"DirectLake"| Lakehouse
+    SM --> Report
+
+    style Agent fill:#4A90D9,stroke:#2C5F8A,color:#fff
+    style Ontology fill:#7B68EE,stroke:#5A4FCF,color:#fff
+    style Lakehouse fill:#2E8B57,stroke:#1E6B3F,color:#fff
+    style Eventhouse fill:#FF8C00,stroke:#CC7000,color:#fff
+    style PBI fill:#F2C811,stroke:#C9A70E,color:#000
+    style User fill:#6C757D,stroke:#495057,color:#fff
+```
+
+> **Key insight**: The Data Agent queries **only the Ontology**. The ontology's data bindings transparently route static property queries to the Lakehouse and time-series queries to the Eventhouse/KQL — the agent never accesses these sources directly.
+
 ---
 
 ## 📋 Prerequisites
