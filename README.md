@@ -25,66 +25,31 @@ This accelerator deploys a complete **Digital Twin** solution on Microsoft Fabri
 ```mermaid
 graph TB
     User["👤 User<br/><i>Natural Language Query</i>"]
-    Agent["🤖 Data Agent<br/><i>SG_ManufacturingAgent</i>"]
-    Ontology["🧠 Ontology<br/><i>SG_ManufacturingOntology</i>"]
+    Agent["🤖 Data Agent<br/><i>GQL + Time-Series Selectors</i>"]
 
-    subgraph EntityTypes["Entity Types"]
-        Plant["🏭 Plant"]
-        Line["⚙️ ProductionLine"]
-        Equip["🔧 Equipment"]
-        Sensor["📡 Sensor"]
-        Product["📦 Product"]
-        WO["📋 WorkOrder"]
-    end
+    Ontology["🧠 Ontology<br/><i>6 Entity Types · 5 Relationships · 9 Data Bindings</i>"]
 
-    subgraph Relationships["Relationships"]
-        R1["Plant —Has_Line→ Line"]
-        R2["Line —Has_Equipment→ Equipment"]
-        R3["Equipment —Has_Sensor→ Sensor"]
-        R4["WorkOrder —Assigned_To→ Line"]
-        R5["WorkOrder —Produces→ Product"]
-    end
+    SM["📊 Semantic Model<br/><i>DirectLake Star Schema<br/>9 Tables · 15 Relationships · 15 DAX Measures</i>"]
 
-    subgraph Lakehouse["🗄️ Lakehouse<br/><i>NonTimeSeries Bindings</i>"]
-        DIM_PLANT["DIM_PLANT"]
-        DIM_LINE["DIM_LINE"]
-        DIM_EQUIPMENT["DIM_EQUIPMENT"]
-        DIM_SENSOR["DIM_SENSOR"]
-        DIM_PRODUCT["DIM_PRODUCT"]
-        DIM_WORKORDER["DIM_WORKORDER"]
-        FACT["FACT_PRODUCTION<br/>FACT_WORK_ORDER<br/>FACT_EQUIPMENT_OEE"]
-    end
+    EH["⚡ Eventhouse / KQL Database<br/><i>SensorTelemetry · EquipmentStatus<br/>ProductionMetrics · Alerts</i>"]
 
-    subgraph Eventhouse["⚡ Eventhouse / KQL<br/><i>TimeSeries Bindings</i>"]
-        ST["SensorTelemetry<br/><i>Value, Quality</i>"]
-        ES["EquipmentStatus<br/><i>RunTime, DownTime, Status</i>"]
-        PM["ProductionMetrics<br/><i>Efficiency, UnitCount, CycleTime</i>"]
-        AL["Alerts"]
-    end
+    LH["🗄️ Lakehouse<br/><i>DIM_PLANT · DIM_LINE · DIM_EQUIPMENT · DIM_SENSOR<br/>DIM_PRODUCT · DIM_WORKORDER<br/>FACT_PRODUCTION · FACT_WORK_ORDER · FACT_EQUIPMENT_OEE</i>"]
 
-    subgraph PBI["📊 Power BI"]
-        SM["Semantic Model<br/><i>DirectLake Star Schema</i>"]
-        Report["Dashboards & Reports"]
-    end
+    User --> Agent
+    Agent --> Ontology
+    Ontology -->|"NonTimeSeries<br/>Bindings"| SM
+    Ontology -->|"TimeSeries<br/>Bindings"| EH
+    SM -->|"DirectLake"| LH
 
-    User -->|"Ask question"| Agent
-    Agent -->|"GQL + Time-Series<br/>Selectors"| Ontology
-    Ontology --- EntityTypes
-    Ontology --- Relationships
-    Ontology -->|"Static properties"| Lakehouse
-    Ontology -->|"Telemetry data"| Eventhouse
-    SM -->|"DirectLake"| Lakehouse
-    SM --> Report
-
+    style User fill:#6C757D,stroke:#495057,color:#fff
     style Agent fill:#4A90D9,stroke:#2C5F8A,color:#fff
     style Ontology fill:#7B68EE,stroke:#5A4FCF,color:#fff
-    style Lakehouse fill:#2E8B57,stroke:#1E6B3F,color:#fff
-    style Eventhouse fill:#FF8C00,stroke:#CC7000,color:#fff
-    style PBI fill:#F2C811,stroke:#C9A70E,color:#000
-    style User fill:#6C757D,stroke:#495057,color:#fff
+    style SM fill:#F2C811,stroke:#C9A70E,color:#000
+    style EH fill:#FF8C00,stroke:#CC7000,color:#fff
+    style LH fill:#2E8B57,stroke:#1E6B3F,color:#fff
 ```
 
-> **Key insight**: The Data Agent queries **only the Ontology**. The ontology's data bindings transparently route static property queries to the Lakehouse and time-series queries to the Eventhouse/KQL — the agent never accesses these sources directly.
+> **Key insight**: The **Ontology** sits on top of two data layers — the **Semantic Model** (static entity properties via NonTimeSeries bindings) and the **Eventhouse** (real-time telemetry via TimeSeries bindings). The Semantic Model itself is a DirectLake star schema built on the **Lakehouse** Delta tables. The Data Agent queries only the Ontology — data bindings handle the routing transparently.
 
 ---
 
