@@ -1,0 +1,48 @@
+{
+  "id": "a1000006-0000-0000-0000-000000000006",
+  "entityTypeId": "100595935889013",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "WorkOrderId",
+        "targetPropertyId": "200812309560572"
+      },
+      {
+        "sourceColumnName": "ProductId",
+        "targetPropertyId": "200080654706419"
+      },
+      {
+        "sourceColumnName": "LineId",
+        "targetPropertyId": "200663163043909"
+      },
+      {
+        "sourceColumnName": "Quantity",
+        "targetPropertyId": "200385976198688"
+      },
+      {
+        "sourceColumnName": "StartDate",
+        "targetPropertyId": "200740823905781"
+      },
+      {
+        "sourceColumnName": "DueDate",
+        "targetPropertyId": "200916554462351"
+      },
+      {
+        "sourceColumnName": "Status",
+        "targetPropertyId": "200721835857073"
+      },
+      {
+        "sourceColumnName": "Priority",
+        "targetPropertyId": "200047375555381"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "__WORKSPACE_ID__",
+      "itemId": "__LAKEHOUSE_ID__",
+      "sourceTableName": "DIM_WORKORDER",
+      "sourceSchema": "dbo"
+    }
+  }
+}

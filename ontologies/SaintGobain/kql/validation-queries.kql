@@ -1,0 +1,62 @@
+// ============================================================
+// SG Manufacturing Ontology — Post-Deployment Validation Queries
+// Run these in the KQL database editor after full deployment
+// ============================================================
+
+// --- 1) Table row counts ---
+.show tables
+| project TableName, TotalRowCount
+
+// --- 2) SensorTelemetry — recent data check ---
+SensorTelemetry
+| where Timestamp > ago(5m)
+| summarize Readings = count() by SensorId
+| order by Readings desc
+
+// --- 3) EquipmentStatus — recent data check ---
+EquipmentStatus
+| where Timestamp > ago(5m)
+| summarize Snapshots = count() by EquipmentId
+| order by Snapshots desc
+
+// --- 4) ProductionMetrics — recent data check ---
+ProductionMetrics
+| where Timestamp > ago(5m)
+| summarize Records = count() by LineId
+| order by Records desc
+
+// --- 5) Alerts — summary by severity ---
+Alerts
+| summarize AlertCount = count() by Severity
+| order by AlertCount desc
+
+// --- 6) FK integrity: SensorTelemetry.SensorId exists in DIM_SENSOR ---
+// Note: DIM_SENSOR is in Lakehouse; this query checks KQL-side only
+SensorTelemetry
+| summarize by SensorId
+| where SensorId !startswith "SG-SN-"
+| project OrphanSensorId = SensorId
+
+// --- 7) FK integrity: EquipmentStatus.EquipmentId format check ---
+EquipmentStatus
+| summarize by EquipmentId
+| where EquipmentId !startswith "SG-EQ-"
+| project OrphanEquipmentId = EquipmentId
+
+// --- 8) FK integrity: ProductionMetrics.LineId format check ---
+ProductionMetrics
+| summarize by LineId
+| where LineId !startswith "SG-LN-"
+| project OrphanLineId = LineId
+
+// --- 9) Telemetry freshness — latest reading per table ---
+SensorTelemetry | summarize LatestReading = max(Timestamp) | project Table = "SensorTelemetry", LatestReading
+| union (EquipmentStatus | summarize LatestReading = max(Timestamp) | project Table = "EquipmentStatus", LatestReading)
+| union (ProductionMetrics | summarize LatestReading = max(Timestamp) | project Table = "ProductionMetrics", LatestReading)
+| union (Alerts | summarize LatestReading = max(Timestamp) | project Table = "Alerts", LatestReading)
+
+// --- 10) Overall table counts ---
+SensorTelemetry | count
+EquipmentStatus | count
+ProductionMetrics | count
+Alerts | count

@@ -1,0 +1,881 @@
+{
+  "compatibilityLevel": 1604,
+  "model": {
+    "name": "SG-Manufacturing",
+    "culture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": [
+          "let",
+          "    database = Sql.Database(\"y7iyppilkq3ubfcrrrtqrxesgm-7fjgtzq7ipnulp6uk3rrie773e.datawarehouse.fabric.microsoft.com\", \"71e30543-05b4-42f2-90d6-d5dd3e68a821\")",
+          "in",
+          "    database"
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "DIM_DATE",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey",
+            "isKey": true,
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Date",
+            "dataType": "string",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "string",
+            "sourceColumn": "Quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Day",
+            "dataType": "int64",
+            "sourceColumn": "Day",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DayName",
+            "dataType": "string",
+            "sourceColumn": "DayName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "IsWeekend",
+            "dataType": "int64",
+            "sourceColumn": "IsWeekend",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_DATE-p",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "DIM_DATE",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_PLANT",
+        "columns": [
+          {
+            "name": "PlantId",
+            "dataType": "string",
+            "sourceColumn": "PlantId",
+            "isKey": true,
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "sourceColumn": "Location",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Division",
+            "dataType": "string",
+            "sourceColumn": "Division",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Capacity",
+            "dataType": "int64",
+            "sourceColumn": "Capacity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PLANT-p",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "DIM_PLANT",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_LINE",
+        "columns": [
+          {
+            "name": "LineId",
+            "dataType": "string",
+            "sourceColumn": "LineId",
+            "isKey": true,
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PlantId",
+            "dataType": "string",
+            "sourceColumn": "PlantId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LineType",
+            "dataType": "string",
+            "sourceColumn": "LineType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Capacity",
+            "dataType": "int64",
+            "sourceColumn": "Capacity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_LINE-p",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "DIM_LINE",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_EQUIPMENT",
+        "columns": [
+          {
+            "name": "EquipmentId",
+            "dataType": "string",
+            "sourceColumn": "EquipmentId",
+            "isKey": true,
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LineId",
+            "dataType": "string",
+            "sourceColumn": "LineId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EquipmentType",
+            "dataType": "string",
+            "sourceColumn": "EquipmentType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Manufacturer",
+            "dataType": "string",
+            "sourceColumn": "Manufacturer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Model",
+            "dataType": "string",
+            "sourceColumn": "Model",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_EQUIPMENT-p",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "DIM_EQUIPMENT",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_SENSOR",
+        "columns": [
+          {
+            "name": "SensorId",
+            "dataType": "string",
+            "sourceColumn": "SensorId",
+            "isKey": true,
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EquipmentId",
+            "dataType": "string",
+            "sourceColumn": "EquipmentId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SensorType",
+            "dataType": "string",
+            "sourceColumn": "SensorType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Unit",
+            "dataType": "string",
+            "sourceColumn": "Unit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MinValue",
+            "dataType": "double",
+            "sourceColumn": "MinValue",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MaxValue",
+            "dataType": "double",
+            "sourceColumn": "MaxValue",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_SENSOR-p",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "DIM_SENSOR",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_PRODUCT",
+        "columns": [
+          {
+            "name": "ProductId",
+            "dataType": "string",
+            "sourceColumn": "ProductId",
+            "isKey": true,
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SKU",
+            "dataType": "string",
+            "sourceColumn": "SKU",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "sourceColumn": "Category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Division",
+            "dataType": "string",
+            "sourceColumn": "Division",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UnitCost",
+            "dataType": "double",
+            "sourceColumn": "UnitCost",
+            "formatString": "#,0.00",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "double",
+            "sourceColumn": "UnitPrice",
+            "formatString": "#,0.00",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Weight",
+            "dataType": "double",
+            "sourceColumn": "Weight",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PRODUCT-p",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "DIM_PRODUCT",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_PRODUCTION",
+        "columns": [
+          {
+            "name": "ProductionId",
+            "dataType": "string",
+            "sourceColumn": "ProductionId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LineId",
+            "dataType": "string",
+            "sourceColumn": "LineId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProductId",
+            "dataType": "string",
+            "sourceColumn": "ProductId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PlantId",
+            "dataType": "string",
+            "sourceColumn": "PlantId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "QuantityProduced",
+            "dataType": "int64",
+            "sourceColumn": "QuantityProduced",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "QuantityDefective",
+            "dataType": "int64",
+            "sourceColumn": "QuantityDefective",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ScrapKg",
+            "dataType": "double",
+            "sourceColumn": "ScrapKg",
+            "formatString": "#,0.0",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "CycleTimeSec",
+            "dataType": "int64",
+            "sourceColumn": "CycleTimeSec",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "PlannedQuantity",
+            "dataType": "int64",
+            "sourceColumn": "PlannedQuantity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "RuntimeMinutes",
+            "dataType": "int64",
+            "sourceColumn": "RuntimeMinutes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DowntimeMinutes",
+            "dataType": "int64",
+            "sourceColumn": "DowntimeMinutes",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FACT_PRODUCTION-p",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "FACT_PRODUCTION",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Produced",
+            "expression": "SUM(FACT_PRODUCTION[QuantityProduced])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Total Defective",
+            "expression": "SUM(FACT_PRODUCTION[QuantityDefective])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Yield %",
+            "expression": "DIVIDE(SUM(FACT_PRODUCTION[QuantityProduced]) - SUM(FACT_PRODUCTION[QuantityDefective]), SUM(FACT_PRODUCTION[QuantityProduced]))",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Plan Achievement %",
+            "expression": "DIVIDE(SUM(FACT_PRODUCTION[QuantityProduced]), SUM(FACT_PRODUCTION[PlannedQuantity]))",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Total Scrap (kg)",
+            "expression": "SUM(FACT_PRODUCTION[ScrapKg])",
+            "formatString": "#,0.0"
+          },
+          {
+            "name": "Avg Cycle Time (s)",
+            "expression": "AVERAGE(FACT_PRODUCTION[CycleTimeSec])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Availability %",
+            "expression": "DIVIDE(SUM(FACT_PRODUCTION[RuntimeMinutes]), SUM(FACT_PRODUCTION[RuntimeMinutes]) + SUM(FACT_PRODUCTION[DowntimeMinutes]))",
+            "formatString": "0.0%"
+          }
+        ]
+      },
+      {
+        "name": "FACT_WORK_ORDER",
+        "columns": [
+          {
+            "name": "WorkOrderId",
+            "dataType": "string",
+            "sourceColumn": "WorkOrderId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProductId",
+            "dataType": "string",
+            "sourceColumn": "ProductId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LineId",
+            "dataType": "string",
+            "sourceColumn": "LineId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PlantId",
+            "dataType": "string",
+            "sourceColumn": "PlantId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "CompletedQty",
+            "dataType": "int64",
+            "sourceColumn": "CompletedQty",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ScrapQty",
+            "dataType": "int64",
+            "sourceColumn": "ScrapQty",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "UnitCost",
+            "dataType": "double",
+            "sourceColumn": "UnitCost",
+            "formatString": "#,0.00",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TotalCost",
+            "dataType": "double",
+            "sourceColumn": "TotalCost",
+            "formatString": "#,0.00",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Priority",
+            "dataType": "string",
+            "sourceColumn": "Priority",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FACT_WORK_ORDER-p",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "FACT_WORK_ORDER",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Order Count",
+            "expression": "COUNTROWS(FACT_WORK_ORDER)",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Total Order Value",
+            "expression": "SUM(FACT_WORK_ORDER[TotalCost])",
+            "formatString": "$#,0"
+          },
+          {
+            "name": "Completion %",
+            "expression": "DIVIDE(SUM(FACT_WORK_ORDER[CompletedQty]), SUM(FACT_WORK_ORDER[Quantity]))",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Open Orders",
+            "expression": "CALCULATE(COUNTROWS(FACT_WORK_ORDER), FACT_WORK_ORDER[Status] IN {\"InProgress\", \"Scheduled\"})",
+            "formatString": "#,0"
+          }
+        ]
+      },
+      {
+        "name": "FACT_EQUIPMENT_OEE",
+        "columns": [
+          {
+            "name": "OEEId",
+            "dataType": "string",
+            "sourceColumn": "OEEId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EquipmentId",
+            "dataType": "string",
+            "sourceColumn": "EquipmentId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LineId",
+            "dataType": "string",
+            "sourceColumn": "LineId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PlantId",
+            "dataType": "string",
+            "sourceColumn": "PlantId",
+            "isHidden": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AvailabilityPct",
+            "dataType": "double",
+            "sourceColumn": "AvailabilityPct",
+            "formatString": "0.0",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "PerformancePct",
+            "dataType": "double",
+            "sourceColumn": "PerformancePct",
+            "formatString": "0.0",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "QualityPct",
+            "dataType": "double",
+            "sourceColumn": "QualityPct",
+            "formatString": "0.0",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "OEEPct",
+            "dataType": "double",
+            "sourceColumn": "OEEPct",
+            "formatString": "0.0",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "PlannedRunMinutes",
+            "dataType": "int64",
+            "sourceColumn": "PlannedRunMinutes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ActualRunMinutes",
+            "dataType": "int64",
+            "sourceColumn": "ActualRunMinutes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BreakdownMinutes",
+            "dataType": "int64",
+            "sourceColumn": "BreakdownMinutes",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FACT_EQUIPMENT_OEE-p",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "FACT_EQUIPMENT_OEE",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Avg OEE %",
+            "expression": "AVERAGE(FACT_EQUIPMENT_OEE[OEEPct])",
+            "formatString": "0.0"
+          },
+          {
+            "name": "Avg Availability %",
+            "expression": "AVERAGE(FACT_EQUIPMENT_OEE[AvailabilityPct])",
+            "formatString": "0.0"
+          },
+          {
+            "name": "Total Breakdown Min",
+            "expression": "SUM(FACT_EQUIPMENT_OEE[BreakdownMinutes])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Equipment Utilization %",
+            "expression": "DIVIDE(SUM(FACT_EQUIPMENT_OEE[ActualRunMinutes]), SUM(FACT_EQUIPMENT_OEE[PlannedRunMinutes]))",
+            "formatString": "0.0%"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "prod_date",
+        "fromTable": "FACT_PRODUCTION",
+        "fromColumn": "DateKey",
+        "toTable": "DIM_DATE",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "wo_date",
+        "fromTable": "FACT_WORK_ORDER",
+        "fromColumn": "DateKey",
+        "toTable": "DIM_DATE",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "oee_date",
+        "fromTable": "FACT_EQUIPMENT_OEE",
+        "fromColumn": "DateKey",
+        "toTable": "DIM_DATE",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "prod_plant",
+        "fromTable": "FACT_PRODUCTION",
+        "fromColumn": "PlantId",
+        "toTable": "DIM_PLANT",
+        "toColumn": "PlantId"
+      },
+      {
+        "name": "wo_plant",
+        "fromTable": "FACT_WORK_ORDER",
+        "fromColumn": "PlantId",
+        "toTable": "DIM_PLANT",
+        "toColumn": "PlantId"
+      },
+      {
+        "name": "oee_plant",
+        "fromTable": "FACT_EQUIPMENT_OEE",
+        "fromColumn": "PlantId",
+        "toTable": "DIM_PLANT",
+        "toColumn": "PlantId"
+      },
+      {
+        "name": "prod_line",
+        "fromTable": "FACT_PRODUCTION",
+        "fromColumn": "LineId",
+        "toTable": "DIM_LINE",
+        "toColumn": "LineId"
+      },
+      {
+        "name": "wo_line",
+        "fromTable": "FACT_WORK_ORDER",
+        "fromColumn": "LineId",
+        "toTable": "DIM_LINE",
+        "toColumn": "LineId"
+      },
+      {
+        "name": "oee_line",
+        "fromTable": "FACT_EQUIPMENT_OEE",
+        "fromColumn": "LineId",
+        "toTable": "DIM_LINE",
+        "toColumn": "LineId"
+      },
+      {
+        "name": "prod_product",
+        "fromTable": "FACT_PRODUCTION",
+        "fromColumn": "ProductId",
+        "toTable": "DIM_PRODUCT",
+        "toColumn": "ProductId"
+      },
+      {
+        "name": "wo_product",
+        "fromTable": "FACT_WORK_ORDER",
+        "fromColumn": "ProductId",
+        "toTable": "DIM_PRODUCT",
+        "toColumn": "ProductId"
+      },
+      {
+        "name": "oee_equip",
+        "fromTable": "FACT_EQUIPMENT_OEE",
+        "fromColumn": "EquipmentId",
+        "toTable": "DIM_EQUIPMENT",
+        "toColumn": "EquipmentId"
+      },
+      {
+        "name": "line_plant",
+        "fromTable": "DIM_LINE",
+        "fromColumn": "PlantId",
+        "toTable": "DIM_PLANT",
+        "toColumn": "PlantId",
+        "isActive": false
+      },
+      {
+        "name": "equip_line",
+        "fromTable": "DIM_EQUIPMENT",
+        "fromColumn": "LineId",
+        "toTable": "DIM_LINE",
+        "toColumn": "LineId",
+        "isActive": false
+      },
+      {
+        "name": "sensor_equip",
+        "fromTable": "DIM_SENSOR",
+        "fromColumn": "EquipmentId",
+        "toTable": "DIM_EQUIPMENT",
+        "toColumn": "EquipmentId",
+        "isActive": false
+      }
+    ]
+  }
+}

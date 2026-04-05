@@ -1,0 +1,48 @@
+{
+  "id": "a1000004-0000-0000-0000-000000000004",
+  "entityTypeId": "100381561283044",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "SensorId",
+        "targetPropertyId": "200058160739271"
+      },
+      {
+        "sourceColumnName": "Name",
+        "targetPropertyId": "200451852804885"
+      },
+      {
+        "sourceColumnName": "EquipmentId",
+        "targetPropertyId": "200681144099093"
+      },
+      {
+        "sourceColumnName": "SensorType",
+        "targetPropertyId": "200691363451350"
+      },
+      {
+        "sourceColumnName": "Unit",
+        "targetPropertyId": "200912115996098"
+      },
+      {
+        "sourceColumnName": "MinValue",
+        "targetPropertyId": "200174952446421"
+      },
+      {
+        "sourceColumnName": "MaxValue",
+        "targetPropertyId": "200041263093518"
+      },
+      {
+        "sourceColumnName": "Status",
+        "targetPropertyId": "200642116534433"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "__WORKSPACE_ID__",
+      "itemId": "__LAKEHOUSE_ID__",
+      "sourceTableName": "DIM_SENSOR",
+      "sourceSchema": "dbo"
+    }
+  }
+}

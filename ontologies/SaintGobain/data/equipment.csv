@@ -1,0 +1,19 @@
+EquipmentId,Name,LineId,EquipmentType,Manufacturer,Model,InstallDate,Status
+SG-EQ-001,Float Bath,SG-LN-001,FloatBath,Pilkington,FB-3000,2020-03-15,Operating
+SG-EQ-002,Annealing Lehr,SG-LN-001,Lehr,Grenzebach,ALS-2200,2020-03-15,Operating
+SG-EQ-003,Tin Bath Heater,SG-LN-001,Heater,Siemens,TBH-900,2020-03-15,Operating
+SG-EQ-004,Magnetron Sputter Coater,SG-LN-002,Coater,VonArdenne,GLAD-1200,2021-07-01,Operating
+SG-EQ-005,CVD Reactor,SG-LN-002,Reactor,Applied Materials,CVD-500,2021-07-01,Operating
+SG-EQ-006,Cutting Table CNC,SG-LN-003,CuttingTable,Bottero,363 BCS,2019-11-20,Operating
+SG-EQ-007,Sorting Robot,SG-LN-003,Robot,FANUC,M-20iA,2022-01-10,Operating
+SG-EQ-008,Autoclave Unit,SG-LN-004,Autoclave,Scholz,AU-3000,2020-06-01,Operating
+SG-EQ-009,PVB Interlayer Applicator,SG-LN-004,Applicator,Eastman,PVB-800,2020-06-01,Operating
+SG-EQ-010,Float Bath 2,SG-LN-005,FloatBath,Pilkington,FB-2500,2018-01-15,Operating
+SG-EQ-011,Mirror Coating Station,SG-LN-006,Coater,Bühler,LEYBOLD-LAB,2021-09-01,Maintenance
+SG-EQ-012,Cupola Furnace,SG-LN-007,Furnace,Johns Manville,CF-1200,2019-04-01,Operating
+SG-EQ-013,Fiberizing Spinner,SG-LN-007,Spinner,Isover,FS-700,2019-04-01,Operating
+SG-EQ-014,Packaging Robot,SG-LN-008,Robot,ABB,IRB 6700,2021-02-15,Operating
+SG-EQ-015,Mortar Mixer,SG-LN-009,Mixer,BHS-Sonthofen,DKX-4.5,2020-10-01,Operating
+SG-EQ-016,Bagging Machine,SG-LN-010,Bagger,HAVER & BOECKER,ROTO-PACKER,2020-10-01,Operating
+SG-EQ-017,Glass Bending Furnace,SG-LN-011,Furnace,Tamglass,ProBend,2022-05-01,Operating
+SG-EQ-018,Tempering Furnace,SG-LN-012,Furnace,Glaston,FC,2022-05-01,Operating

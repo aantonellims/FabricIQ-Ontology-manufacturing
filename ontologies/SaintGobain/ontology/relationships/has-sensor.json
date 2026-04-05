@@ -1,0 +1,12 @@
+{
+  "namespace": "usertypes",
+  "id": "300783530338145",
+  "name": "Has_Sensor",
+  "namespaceType": "Custom",
+  "source": {
+    "entityTypeId": "100794301353199"
+  },
+  "target": {
+    "entityTypeId": "100381561283044"
+  }
+}

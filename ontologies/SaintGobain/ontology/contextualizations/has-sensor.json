@@ -1,0 +1,23 @@
+{
+  "id": "c1000003-0000-0000-0000-000000000003",
+  "relationshipTypeId": "300783530338145",
+  "dataBindingTable": {
+    "workspaceId": "__WORKSPACE_ID__",
+    "itemId": "__LAKEHOUSE_ID__",
+    "sourceTableName": "DIM_SENSOR",
+    "sourceSchema": "dbo",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "EquipmentId",
+      "targetPropertyId": "200557261668048"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "SensorId",
+      "targetPropertyId": "200058160739271"
+    }
+  ]
+}

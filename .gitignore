@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# PowerShell
+*.ps1xml
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Azure/Fabric secrets (never commit)
+*.env
+.env.*
+secrets.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# Spec-kit session memory (not needed in repo)
+.memories/
+
+# VS Code settings (user-specific)
+.vscode/
+
+# Diagnostic scripts outputs
+diag_*.json
+test_*.json
+test_*.json

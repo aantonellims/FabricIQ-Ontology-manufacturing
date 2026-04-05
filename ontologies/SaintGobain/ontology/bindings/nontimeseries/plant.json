@@ -1,0 +1,52 @@
+{
+  "id": "a1000001-0000-0000-0000-000000000001",
+  "entityTypeId": "100998852136471",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "PlantId",
+        "targetPropertyId": "200732558493019"
+      },
+      {
+        "sourceColumnName": "Name",
+        "targetPropertyId": "200701883557664"
+      },
+      {
+        "sourceColumnName": "Location",
+        "targetPropertyId": "200750081202815"
+      },
+      {
+        "sourceColumnName": "Country",
+        "targetPropertyId": "200793104738192"
+      },
+      {
+        "sourceColumnName": "Division",
+        "targetPropertyId": "200263111051955"
+      },
+      {
+        "sourceColumnName": "Capacity",
+        "targetPropertyId": "200018305401791"
+      },
+      {
+        "sourceColumnName": "Status",
+        "targetPropertyId": "200702906473518"
+      },
+      {
+        "sourceColumnName": "Latitude",
+        "targetPropertyId": "200291046475150"
+      },
+      {
+        "sourceColumnName": "Longitude",
+        "targetPropertyId": "200646940309036"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "__WORKSPACE_ID__",
+      "itemId": "__LAKEHOUSE_ID__",
+      "sourceTableName": "DIM_PLANT",
+      "sourceSchema": "dbo"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+// ============================================================
+// SG Manufacturing Ontology — KQL Table Policies
+// Caching: 31 days hot | Retention: 365 days | Streaming: on
+// ============================================================
+
+// --- Caching Policies (31 days hot) ---
+.alter table SensorTelemetry policy caching hot = 31d
+.alter table EquipmentStatus policy caching hot = 31d
+.alter table ProductionMetrics policy caching hot = 31d
+.alter table Alerts policy caching hot = 31d
+
+// --- Retention Policies (365 days, no recovery) ---
+.alter table SensorTelemetry policy retention softdelete = 365d recoverability = disabled
+.alter table EquipmentStatus policy retention softdelete = 365d recoverability = disabled
+.alter table ProductionMetrics policy retention softdelete = 365d recoverability = disabled
+.alter table Alerts policy retention softdelete = 365d recoverability = disabled
+
+// --- Streaming Ingestion ---
+.alter table SensorTelemetry policy streamingingestion enable
+.alter table EquipmentStatus policy streamingingestion enable
+.alter table ProductionMetrics policy streamingingestion enable
+.alter table Alerts policy streamingingestion enable

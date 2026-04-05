@@ -1,0 +1,34 @@
+{
+  "id": "b1000002-0000-0000-0000-000000000002",
+  "entityTypeId": "100794301353199",
+  "dataBindingConfiguration": {
+    "dataBindingType": "TimeSeries",
+    "timestampColumnName": "Timestamp",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "EquipmentId",
+        "targetPropertyId": "200557261668048"
+      },
+      {
+        "sourceColumnName": "Status",
+        "targetPropertyId": "200908599606764"
+      },
+      {
+        "sourceColumnName": "RunHours",
+        "targetPropertyId": "1003102"
+      },
+      {
+        "sourceColumnName": "CycleCount",
+        "targetPropertyId": "1003103"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "KustoTable",
+      "workspaceId": "__WORKSPACE_ID__",
+      "itemId": "__EVENTHOUSE_ID__",
+      "clusterUri": "__KQL_QUERY_URI__",
+      "databaseName": "__KQL_DB_NAME__",
+      "sourceTableName": "EquipmentStatus"
+    }
+  }
+}

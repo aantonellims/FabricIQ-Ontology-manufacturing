@@ -1,0 +1,12 @@
+{
+  "namespace": "usertypes",
+  "id": "300126196465515",
+  "name": "Produces",
+  "namespaceType": "Custom",
+  "source": {
+    "entityTypeId": "100595935889013"
+  },
+  "target": {
+    "entityTypeId": "100660193859420"
+  }
+}

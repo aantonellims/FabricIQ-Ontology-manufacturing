@@ -1,0 +1,12 @@
+{
+  "namespace": "usertypes",
+  "id": "300420323402787",
+  "name": "Has_Equipment",
+  "namespaceType": "Custom",
+  "source": {
+    "entityTypeId": "100574843316222"
+  },
+  "target": {
+    "entityTypeId": "100794301353199"
+  }
+}

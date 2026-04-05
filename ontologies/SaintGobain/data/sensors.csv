@@ -1,0 +1,21 @@
+SensorId,Name,EquipmentId,SensorType,Unit,MinValue,MaxValue,Status
+SG-SN-001,Bath Temperature Top,SG-EQ-001,Temperature,Celsius,1050,1120,Active
+SG-SN-002,Bath Temperature Bottom,SG-EQ-001,Temperature,Celsius,1040,1110,Active
+SG-SN-003,Tin Level,SG-EQ-001,Level,mm,5,12,Active
+SG-SN-004,Glass Ribbon Speed,SG-EQ-001,Speed,m/min,8,25,Active
+SG-SN-005,Lehr Zone 1 Temp,SG-EQ-002,Temperature,Celsius,550,620,Active
+SG-SN-006,Lehr Zone 4 Temp,SG-EQ-002,Temperature,Celsius,200,300,Active
+SG-SN-007,Glass Thickness,SG-EQ-002,Thickness,mm,2,19,Active
+SG-SN-008,Heater Power,SG-EQ-003,Power,kW,100,500,Active
+SG-SN-009,Sputter Pressure,SG-EQ-004,Pressure,mbar,0.001,0.01,Active
+SG-SN-010,Coating Thickness,SG-EQ-004,Thickness,nm,10,200,Active
+SG-SN-011,CVD Chamber Temp,SG-EQ-005,Temperature,Celsius,400,650,Active
+SG-SN-012,Cutting Head Position X,SG-EQ-006,Position,mm,0,6000,Active
+SG-SN-013,Cutting Head Position Y,SG-EQ-006,Position,mm,0,3210,Active
+SG-SN-014,Autoclave Pressure,SG-EQ-008,Pressure,Bar,8,14,Active
+SG-SN-015,Autoclave Temperature,SG-EQ-008,Temperature,Celsius,120,145,Active
+SG-SN-016,Cupola Temp,SG-EQ-012,Temperature,Celsius,1300,1500,Active
+SG-SN-017,Spinner RPM,SG-EQ-013,Speed,RPM,2000,4000,Active
+SG-SN-018,Mixer Torque,SG-EQ-015,Torque,Nm,500,2000,Active
+SG-SN-019,Bending Furnace Temp,SG-EQ-017,Temperature,Celsius,580,680,Active
+SG-SN-020,Tempering Quench Pressure,SG-EQ-018,Pressure,Bar,2,8,Active

@@ -1,0 +1,40 @@
+{
+  "id": "a1000002-0000-0000-0000-000000000002",
+  "entityTypeId": "100574843316222",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "LineId",
+        "targetPropertyId": "200685935307707"
+      },
+      {
+        "sourceColumnName": "Name",
+        "targetPropertyId": "200069600682633"
+      },
+      {
+        "sourceColumnName": "PlantId",
+        "targetPropertyId": "200742214825510"
+      },
+      {
+        "sourceColumnName": "LineType",
+        "targetPropertyId": "200595996249527"
+      },
+      {
+        "sourceColumnName": "Capacity",
+        "targetPropertyId": "200899433678576"
+      },
+      {
+        "sourceColumnName": "Status",
+        "targetPropertyId": "200999899283147"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "__WORKSPACE_ID__",
+      "itemId": "__LAKEHOUSE_ID__",
+      "sourceTableName": "DIM_LINE",
+      "sourceSchema": "dbo"
+    }
+  }
+}

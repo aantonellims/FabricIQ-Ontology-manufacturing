@@ -1,0 +1,93 @@
+[
+  {
+    "path": "Files/Config/data_agent.json",
+    "payload": {
+      "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataAgent/2.1.0/schema.json"
+    }
+  },
+  {
+    "path": "Files/Config/draft/stage_config.json",
+    "payload": {
+      "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/stageConfiguration/1.0.0/schema.json",
+      "aiInstructions": "You are a Saint-Gobain Manufacturing Operations Assistant analyzing data from 5 plants across Europe.\n\nPLANTS: Aachen (Flat Glass), Aniche (Float), Chemille (Insulation), Seremange (Mortars), Herzogenrath (Automotive Glass)\n\nSTAR SCHEMA: 6 dimensions (Plant, Line, Equipment, Sensor, Product, Date) + 3 fact tables (Production, Work Orders, Equipment OEE)\n\nKEY MEASURES: Total Produced, Yield %, Plan Achievement %, Avg OEE %, Total Order Value, Completion %\n\nPRODUCTS: PLANILUX (float glass), PLANITHERM (coated), STADIP (laminated), ISOVER (insulation), Weber (mortars), SEKURIT (automotive), MIRALITE (mirrors)\n\nUse SQL for Lakehouse, DAX for Semantic Model measures, KQL for real-time telemetry. Always include units."
+    }
+  },
+  {
+    "path": "Files/Config/draft/ontology-SaintGobainManufacturing/datasource.json",
+    "payload": {
+      "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+      "artifactId": "29ed1128-667c-488f-a12e-1c495c6473ff",
+      "workspaceId": "e66952f9-431f-45db-bfd4-56e31413ffd9",
+      "dataSourceInstructions": null,
+      "displayName": "SaintGobainManufacturing",
+      "type": "ontology",
+      "userDescription": null,
+      "metadata": {},
+      "elements": [
+        {
+          "id": "Plant",
+          "is_selected": true,
+          "display_name": "Plant",
+          "type": "ontology.entity",
+          "description": "PlantId,Name,Location,Country,Division,Capacity,Status,Latitude,Longitude",
+          "children": []
+        },
+        {
+          "id": "ProductionLine",
+          "is_selected": true,
+          "display_name": "ProductionLine",
+          "type": "ontology.entity",
+          "description": "LineId,Efficiency,Name,UnitCount,PlantId,CycleTime,LineType,Capacity,Status",
+          "children": []
+        },
+        {
+          "id": "Equipment",
+          "is_selected": true,
+          "display_name": "Equipment",
+          "type": "ontology.entity",
+          "description": "EquipmentId,RunTimeMinutes,Name,DownTimeMinutes,LineId,OperatingStatus,EquipmentType,Manufacturer,Model,InstallDate,Status",
+          "children": []
+        },
+        {
+          "id": "Sensor",
+          "is_selected": true,
+          "display_name": "Sensor",
+          "type": "ontology.entity",
+          "description": "SensorId,Value,Name,Quality,EquipmentId,SensorType,Unit,MinValue,MaxValue,Status",
+          "children": []
+        },
+        {
+          "id": "Product",
+          "is_selected": true,
+          "display_name": "Product",
+          "type": "ontology.entity",
+          "description": "ProductId,SKU,Name,Category,Division,UnitCost,UnitPrice,Weight,Status",
+          "children": []
+        },
+        {
+          "id": "WorkOrder",
+          "is_selected": true,
+          "display_name": "WorkOrder",
+          "type": "ontology.entity",
+          "description": "WorkOrderId,ProductId,LineId,Quantity,StartDate,DueDate,Status,Priority",
+          "children": []
+        }
+      ]
+    }
+  },
+  {
+    "path": ".platform",
+    "payload": {
+      "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+      "metadata": {
+        "type": "DataAgent",
+        "displayName": "SG_ManufacturingAgent",
+        "description": "Natural language queries over SG Manufacturing Ontology"
+      },
+      "config": {
+        "version": "2.0",
+        "logicalId": "00000000-0000-0000-0000-000000000000"
+      }
+    }
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "id": "c1000002-0000-0000-0000-000000000002",
+  "relationshipTypeId": "300420323402787",
+  "dataBindingTable": {
+    "workspaceId": "__WORKSPACE_ID__",
+    "itemId": "__LAKEHOUSE_ID__",
+    "sourceTableName": "DIM_EQUIPMENT",
+    "sourceSchema": "dbo",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "LineId",
+      "targetPropertyId": "200685935307707"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "EquipmentId",
+      "targetPropertyId": "200557261668048"
+    }
+  ]
+}

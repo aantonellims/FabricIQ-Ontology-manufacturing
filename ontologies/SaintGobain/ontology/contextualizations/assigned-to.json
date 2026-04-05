@@ -1,0 +1,23 @@
+{
+  "id": "c1000004-0000-0000-0000-000000000004",
+  "relationshipTypeId": "300650771689783",
+  "dataBindingTable": {
+    "workspaceId": "__WORKSPACE_ID__",
+    "itemId": "__LAKEHOUSE_ID__",
+    "sourceTableName": "DIM_WORKORDER",
+    "sourceSchema": "dbo",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "WorkOrderId",
+      "targetPropertyId": "200812309560572"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "LineId",
+      "targetPropertyId": "200685935307707"
+    }
+  ]
+}

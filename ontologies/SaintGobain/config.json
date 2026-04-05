@@ -1,0 +1,31 @@
+{
+    "workspace": {
+        "id": "e66952f9-431f-45db-bfd4-56e31413ffd9",
+        "name": "SG-Manufacturing-Ontology"
+    },
+    "capacity": {
+        "name": "msfabric001"
+    },
+    "lakehouse": {
+        "id": "bf867648-3337-4ef4-8410-edb6da85648f",
+        "name": "SG_ManufacturingLakehouse"
+    },
+    "eventhouse": {
+        "id": "bdc1b545-a092-4c8f-a9bd-00a44df45e2e",
+        "name": "SG_ManufacturingEventhouse"
+    },
+    "kqlDatabase": {
+        "id": "8dbb2598-02d8-4fe6-84f0-7f16a05368ec",
+        "name": "SG_ManufacturingEventhouse",
+        "queryServiceUri": "https://trd-avnf7am1q6yqb4mnwk.z2.kusto.fabric.microsoft.com"
+    },
+    "ontology": {
+        "id": "72c7c916-df43-40e5-ba7b-833ffd063a71",
+        "name": "SG_ManufacturingOntology"
+    },
+    "semanticModel": {
+        "id": "9af46896-b4ae-4114-8b3e-9ff837fdc18a",
+        "name": "SG-Manufacturing"
+    },
+    "apiBase": "https://api.fabric.microsoft.com/v1"
+}

@@ -1,0 +1,6 @@
+PlantId,Name,Location,Country,Division,Capacity,Status,Latitude,Longitude
+SG-PLT-001,Saint-Gobain Aachen Flat Glass,Aachen,Germany,Flat Glass,8000,Active,50.7753,6.0839
+SG-PLT-002,Saint-Gobain Aniche Float,Aniche,France,Flat Glass,6000,Active,50.3289,3.2532
+SG-PLT-003,Isover Chemillé Insulation,Chemillé,France,Insulation,4500,Active,47.2131,-0.7273
+SG-PLT-004,Weber Serémange Mortars,Serémange,France,Construction Products,3000,Active,49.3167,6.0833
+SG-PLT-005,Sekurit Herzogenrath Automotive,Herzogenrath,Germany,Automotive Glass,5500,Active,50.8667,6.1000

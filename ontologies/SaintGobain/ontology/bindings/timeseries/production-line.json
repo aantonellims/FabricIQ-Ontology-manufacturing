@@ -1,0 +1,34 @@
+{
+  "id": "b1000003-0000-0000-0000-000000000003",
+  "entityTypeId": "100574843316222",
+  "dataBindingConfiguration": {
+    "dataBindingType": "TimeSeries",
+    "timestampColumnName": "Timestamp",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "LineId",
+        "targetPropertyId": "200685935307707"
+      },
+      {
+        "sourceColumnName": "OutputUnits",
+        "targetPropertyId": "1002101"
+      },
+      {
+        "sourceColumnName": "DefectRate",
+        "targetPropertyId": "1002102"
+      },
+      {
+        "sourceColumnName": "OEE",
+        "targetPropertyId": "1002103"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "KustoTable",
+      "workspaceId": "__WORKSPACE_ID__",
+      "itemId": "__EVENTHOUSE_ID__",
+      "clusterUri": "__KQL_QUERY_URI__",
+      "databaseName": "__KQL_DB_NAME__",
+      "sourceTableName": "ProductionMetrics"
+    }
+  }
+}

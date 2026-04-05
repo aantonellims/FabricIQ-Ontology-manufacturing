@@ -1,0 +1,48 @@
+{
+  "id": "a1000003-0000-0000-0000-000000000003",
+  "entityTypeId": "100794301353199",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "EquipmentId",
+        "targetPropertyId": "200557261668048"
+      },
+      {
+        "sourceColumnName": "Name",
+        "targetPropertyId": "200399621452640"
+      },
+      {
+        "sourceColumnName": "LineId",
+        "targetPropertyId": "200739283336143"
+      },
+      {
+        "sourceColumnName": "EquipmentType",
+        "targetPropertyId": "200764945533266"
+      },
+      {
+        "sourceColumnName": "Manufacturer",
+        "targetPropertyId": "200243991115255"
+      },
+      {
+        "sourceColumnName": "Model",
+        "targetPropertyId": "200084680663188"
+      },
+      {
+        "sourceColumnName": "InstallDate",
+        "targetPropertyId": "200798295435060"
+      },
+      {
+        "sourceColumnName": "Status",
+        "targetPropertyId": "200908599606764"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "__WORKSPACE_ID__",
+      "itemId": "__LAKEHOUSE_ID__",
+      "sourceTableName": "DIM_EQUIPMENT",
+      "sourceSchema": "dbo"
+    }
+  }
+}

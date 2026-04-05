@@ -1,0 +1,13 @@
+LineId,Name,PlantId,LineType,Capacity,Status
+SG-LN-001,Float Line 1,SG-PLT-001,Float,2000,Active
+SG-LN-002,Coating Line A,SG-PLT-001,Coating,1500,Active
+SG-LN-003,Cutting & Sorting,SG-PLT-001,Cutting,3000,Active
+SG-LN-004,Laminating Line,SG-PLT-001,Laminating,1200,Active
+SG-LN-005,Float Line 2,SG-PLT-002,Float,1800,Active
+SG-LN-006,Mirror Coating,SG-PLT-002,Coating,1000,Active
+SG-LN-007,Wool Fiberizing Line,SG-PLT-003,Fiberizing,2500,Active
+SG-LN-008,Insulation Packaging,SG-PLT-003,Packaging,2000,Active
+SG-LN-009,Mortar Mixing Line,SG-PLT-004,Mixing,1500,Active
+SG-LN-010,Mortar Bagging,SG-PLT-004,Bagging,1500,Active
+SG-LN-011,Windshield Forming,SG-PLT-005,Forming,1200,Active
+SG-LN-012,Tempering Line,SG-PLT-005,Tempering,1800,Active

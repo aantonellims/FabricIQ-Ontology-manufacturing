@@ -1,0 +1,11 @@
+ProductId,SKU,Name,Category,Division,UnitCost,UnitPrice,Weight,Status
+SG-PRD-001,SGG-PLANILUX-4,PLANILUX Clear Float 4mm,Float Glass,Flat Glass,12.50,29.00,10.0,Active
+SG-PRD-002,SGG-PLANILUX-6,PLANILUX Clear Float 6mm,Float Glass,Flat Glass,18.00,42.00,15.0,Active
+SG-PRD-003,SGG-PLANITHERM,PLANITHERM XN Low-E,Coated Glass,Flat Glass,35.00,85.00,10.5,Active
+SG-PRD-004,SGG-STADIP,STADIP Laminated Safety,Laminated Glass,Flat Glass,55.00,130.00,20.0,Active
+SG-PRD-005,ISO-MULTIMAX,ISOVER Multimax 30,Glass Wool Insulation,Insulation,8.00,22.00,1.2,Active
+SG-PRD-006,ISO-ISOCONFORT,ISOVER Isoconfort 35,Glass Wool Roll,Insulation,6.50,18.00,0.9,Active
+SG-PRD-007,WEB-JOINT,Weber.joint Flex,Tile Adhesive,Construction Products,4.00,12.00,25.0,Active
+SG-PRD-008,WEB-FLOOR,Weber.floor 4150,Floor Leveler,Construction Products,5.50,15.00,25.0,Active
+SG-PRD-009,SEK-WINDSHIELD,SEKURIT Windshield Laminated,Automotive Windshield,Automotive Glass,120.00,280.00,8.0,Active
+SG-PRD-010,SGG-MIRALITE,MIRALITE Revolution Mirror,Mirror Glass,Flat Glass,25.00,65.00,12.0,Active

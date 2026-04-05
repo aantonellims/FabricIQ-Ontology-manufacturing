@@ -1,0 +1,64 @@
+// ============================================================
+// SG Manufacturing Ontology — Sample Graph & Ontology Queries
+// Run these in the KQL query editor to explore the ontology
+// ============================================================
+
+// --- 1) Full hierarchy: Plant → Line → Equipment → Sensor ---
+// (Requires ontology entity resolution)
+DIM_PLANT
+| project PlantId, PlantName = Name, Location, Country
+
+DIM_LINE
+| project LineId, LineName = Name, PlantId, LineType
+
+DIM_EQUIPMENT
+| project EquipmentId, EquipmentName = Name, LineId, EquipmentType, Manufacturer
+
+DIM_SENSOR
+| project SensorId, SensorName = Name, EquipmentId, SensorType, Unit
+
+// --- 2) Entity counts by type ---
+print EntityType = "Plant", Count = toscalar(DIM_PLANT | count)
+| union (print EntityType = "ProductionLine", Count = toscalar(DIM_LINE | count))
+| union (print EntityType = "Equipment", Count = toscalar(DIM_EQUIPMENT | count))
+| union (print EntityType = "Sensor", Count = toscalar(DIM_SENSOR | count))
+| union (print EntityType = "Product", Count = toscalar(DIM_PRODUCT | count))
+| union (print EntityType = "WorkOrder", Count = toscalar(DIM_WORKORDER | count))
+
+// --- 3) Sensors on a specific equipment ---
+DIM_SENSOR
+| where EquipmentId == "SG-EQ-001"
+| project SensorId, Name, SensorType, Unit, MinValue, MaxValue
+
+// --- 4) Latest sensor telemetry joined to master data ---
+SensorTelemetry
+| where Timestamp > ago(1h)
+| summarize LatestValue = arg_max(Timestamp, Value, Quality) by SensorId
+| join kind=inner (
+    DIM_SENSOR | project SensorId, SensorName = Name, EquipmentId, Unit
+  ) on SensorId
+| join kind=inner (
+    DIM_EQUIPMENT | project EquipmentId, EquipmentName = Name, LineId
+  ) on EquipmentId
+| project SensorName, EquipmentName, Value = LatestValue_Value,
+          Unit, Quality = LatestValue_Quality, Timestamp = LatestValue_Timestamp
+
+// --- 5) Production OEE by plant (cross-entity join) ---
+ProductionMetrics
+| where Timestamp > ago(1h)
+| summarize AvgOEE = avg(OEE), AvgDefectRate = avg(DefectRate) by LineId
+| join kind=inner (
+    DIM_LINE | project LineId, LineName = Name, PlantId
+  ) on LineId
+| join kind=inner (
+    DIM_PLANT | project PlantId, PlantName = Name
+  ) on PlantId
+| summarize AvgOEE = avg(AvgOEE), AvgDefectRate = avg(AvgDefectRate) by PlantName
+| order by AvgOEE desc
+
+// --- 6) Active alerts with entity context ---
+Alerts
+| where IsResolved == false
+| where Timestamp > ago(24h)
+| order by Timestamp desc
+| take 20

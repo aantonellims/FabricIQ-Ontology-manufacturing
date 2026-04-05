@@ -1,0 +1,52 @@
+{
+  "id": "a1000005-0000-0000-0000-000000000005",
+  "entityTypeId": "100660193859420",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "ProductId",
+        "targetPropertyId": "200120226987133"
+      },
+      {
+        "sourceColumnName": "SKU",
+        "targetPropertyId": "200137835091670"
+      },
+      {
+        "sourceColumnName": "Name",
+        "targetPropertyId": "200161251623569"
+      },
+      {
+        "sourceColumnName": "Category",
+        "targetPropertyId": "200075555839438"
+      },
+      {
+        "sourceColumnName": "Division",
+        "targetPropertyId": "200949008881026"
+      },
+      {
+        "sourceColumnName": "UnitCost",
+        "targetPropertyId": "200264169255632"
+      },
+      {
+        "sourceColumnName": "UnitPrice",
+        "targetPropertyId": "200314380132131"
+      },
+      {
+        "sourceColumnName": "Weight",
+        "targetPropertyId": "200898462173438"
+      },
+      {
+        "sourceColumnName": "Status",
+        "targetPropertyId": "200251436154177"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "__WORKSPACE_ID__",
+      "itemId": "__LAKEHOUSE_ID__",
+      "sourceTableName": "DIM_PRODUCT",
+      "sourceSchema": "dbo"
+    }
+  }
+}

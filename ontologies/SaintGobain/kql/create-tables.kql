@@ -1,0 +1,46 @@
+// ============================================================
+// SG Manufacturing Ontology — KQL Table Definitions
+// Idempotent: .create-merge creates or updates existing tables
+// ============================================================
+
+// --- SensorTelemetry ---
+// Real-time sensor readings from IoT sensors on equipment
+.create-merge table SensorTelemetry (
+    SensorId: string,
+    Timestamp: datetime,
+    Value: real,
+    Unit: string,
+    Quality: string
+)
+
+// --- EquipmentStatus ---
+// Periodic equipment operational state snapshots
+.create-merge table EquipmentStatus (
+    EquipmentId: string,
+    Timestamp: datetime,
+    Status: string,
+    RunHours: real,
+    CycleCount: long
+)
+
+// --- ProductionMetrics ---
+// Production line output and efficiency metrics
+.create-merge table ProductionMetrics (
+    LineId: string,
+    Timestamp: datetime,
+    OutputUnits: long,
+    DefectRate: real,
+    OEE: real
+)
+
+// --- Alerts ---
+// Operational alerts from threshold violations or anomaly detection
+.create-merge table Alerts (
+    AlertId: string,
+    EntityId: string,
+    EntityType: string,
+    Timestamp: datetime,
+    Severity: string,
+    Message: string,
+    IsResolved: bool
+)

@@ -1,0 +1,12 @@
+{
+  "namespace": "usertypes",
+  "id": "300650771689783",
+  "name": "Assigned_To",
+  "namespaceType": "Custom",
+  "source": {
+    "entityTypeId": "100595935889013"
+  },
+  "target": {
+    "entityTypeId": "100574843316222"
+  }
+}

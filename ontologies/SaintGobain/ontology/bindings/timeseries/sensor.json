@@ -1,0 +1,34 @@
+{
+  "id": "b1000001-0000-0000-0000-000000000001",
+  "entityTypeId": "100381561283044",
+  "dataBindingConfiguration": {
+    "dataBindingType": "TimeSeries",
+    "timestampColumnName": "Timestamp",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "SensorId",
+        "targetPropertyId": "200058160739271"
+      },
+      {
+        "sourceColumnName": "Value",
+        "targetPropertyId": "1004101"
+      },
+      {
+        "sourceColumnName": "Unit",
+        "targetPropertyId": "200912115996098"
+      },
+      {
+        "sourceColumnName": "Quality",
+        "targetPropertyId": "1004103"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "KustoTable",
+      "workspaceId": "__WORKSPACE_ID__",
+      "itemId": "__EVENTHOUSE_ID__",
+      "clusterUri": "__KQL_QUERY_URI__",
+      "databaseName": "__KQL_DB_NAME__",
+      "sourceTableName": "SensorTelemetry"
+    }
+  }
+}
